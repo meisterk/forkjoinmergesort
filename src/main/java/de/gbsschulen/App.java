@@ -13,6 +13,20 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println("Hallo");
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        List<Integer> list = new ArrayList<>();
+
+        SortierenTask sortierenTask = new SortierenTask(list);
+        forkJoinPool.invoke(sortierenTask);
+        try {
+            List<Integer> listSortiert = sortierenTask.get();
+            for (int zahl : listSortiert) {
+                System.out.print(zahl + " ");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
