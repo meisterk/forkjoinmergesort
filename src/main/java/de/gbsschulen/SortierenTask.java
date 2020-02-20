@@ -12,7 +12,7 @@ public class SortierenTask extends RecursiveTask<List<Integer>> {
 
     @Override
     protected List<Integer> compute() {
-        List<Integer> sortierteListe = null;
+        List<Integer> sortierteListe = unsortierteListe;
         // TODO: unsortierteListe sortieren
         return sortierteListe;
     }
